@@ -1,0 +1,27 @@
+{
+  "_comment": "CA001 - Require MFA for all users. Universal (all variants). Deployed in report-only by default via 02-Deploy-CABaseline.ps1.",
+  "displayName": "CA001 - Require MFA for all users",
+  "state": "enabledForReportingButNotEnforced",
+  "conditions": {
+    "users": {
+      "includeUsers": ["All"],
+      "excludeUsers": [],
+      "includeGroups": [],
+      "excludeGroups": ["REPLACED_AT_DEPLOY_TIME"],
+      "includeRoles": [],
+      "excludeRoles": []
+    },
+    "applications": {
+      "includeApplications": ["All"],
+      "excludeApplications": [],
+      "includeUserActions": []
+    },
+    "clientAppTypes": ["all"]
+  },
+  "grantControls": {
+    "operator": "OR",
+    "builtInControls": ["mfa"],
+    "customAuthenticationFactors": [],
+    "termsOfUse": []
+  }
+}

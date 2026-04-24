@@ -147,7 +147,7 @@ m365-bp-baseline/
 
 **If you are deploying a new Business Premium tenant:** read the leadership executive summary first, consult the variant matrix to confirm which sections apply to your licensing, then work through the runbooks in the order listed. Automation artifacts in the `automation/` directory deploy the configuration described in each runbook; review the scripts before running them and run each in a test tenant first.
 
-**If you are standardizing an existing MSP fleet:** the baseline is your target state. For each customer tenant, use the M365 Hardening Playbook to diagnose drift from baseline, then use the baseline's automation artifacts to deploy missing controls. The pairing of playbook (diagnostic) and baseline (prescriptive) is deliberate.
+**If you are standardizing an existing MSP fleet:** the baseline is an example target state.  For each customer tenant, use the M365 Hardening Playbook to diagnose drift from baseline, then use the baseline's automation artifacts to deploy missing controls. The pairing of playbook (diagnostic) and baseline (prescriptive) is deliberate.
 
 **If you are MSP leadership evaluating options:** read the [executive summary](./leadership/executive-summary.md) and [tools-in-market comparison](./leadership/tools-in-market-comparison.md). These cover the business case for the Defender Suite add-on, the honest assessment of third-party baseline tools, and the staffing implications of deploying and maintaining the baseline.
 
@@ -158,7 +158,7 @@ Each runbook ships with at least one automation artifact:
 * **PowerShell deployment scripts** (`automation/powershell/`) configure the tenant-level settings described in each runbook. Scripts are idempotent where possible; running a script against a tenant that already has the configuration applied produces no change. Scripts are variant-aware; the script reads the tenant's licensing and applies the variant-specific configuration automatically.
 * **Conditional Access policy JSON** (`automation/ca-policies/`) contains exported Conditional Access policies in the Microsoft Graph JSON format, ready to be imported into a target tenant. Each JSON file has a header comment indicating which variant it requires.
 
-Automation artifacts are opinionated. They deploy the baseline's prescriptive configuration. Organizations with specific requirements that deviate from the baseline should fork the artifacts and modify them rather than disabling specific steps at runtime.
+Automation artifacts are opinionated. Review and understand them. I make typo's. You break a tenant, it is on you to fix it. They deploy the baseline's prescriptive configuration. Organizations with specific requirements that deviate from the baseline should fork the artifacts and modify them rather than disabling specific steps at runtime.
 
 ## Contributing
 
